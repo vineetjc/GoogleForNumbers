@@ -1,9 +1,9 @@
 # GoogleForNumbers
 A simple React Native App that integrates the NumbersAPI - http://numbersapi.com
 
-![alt text](src/assets/readme-info.png)
+![Info card about the app](src/assets/readme-info.png)
 
-![alt text](src/assets/readme-home-screen.png)
+![Home Screen with numeric keyboard input](src/assets/readme-home-screen.png)
 
-![alt text](src/assets/readme-results.png)
+![Results screen with trivia, math, date](src/assets/readme-results.png)
 

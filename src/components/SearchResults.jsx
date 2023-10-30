@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Image,
@@ -7,8 +7,6 @@ import {
   Keyboard,
   Pressable,
   TouchableWithoutFeedback,
-  KeyboardAvoidingView,
-  Platform,
 } from 'react-native';
 
 // components
@@ -20,14 +18,14 @@ import InfoIcon from './molecules/InfoIcon';
 import InfoOverlay from './molecules/InfoOverlay';
 
 // util
-import { textWithOnlyDigits } from '../util/searchBarUtil';
-import { pageNames, GENERIC_ERROR_OBJECT } from '../util/constants';
-import { getNumberInfoAPI } from '../api/numbersapi';
+import {textWithOnlyDigits} from '../util/searchBarUtil';
+import {pageNames, GENERIC_ERROR_OBJECT} from '../util/constants';
+import {getNumberInfoAPI} from '../api/numbersapi';
 
 const windowWidth = Dimensions.get('window').width;
 
-function SearchResults({ route, navigation }) {
-  const { result } = route.params;
+function SearchResults({route, navigation}) {
+  const {result} = route.params;
   const [query, setQuery] = useState(result.number?.toString());
   const [data, setData] = useState(result);
   const [infoOverlay, toggleInfoOverlay] = useState(false);
@@ -45,11 +43,11 @@ function SearchResults({ route, navigation }) {
     setData(numbersAPIResponse);
   };
 
-  const onChangeText = (input) => {
+  const onChangeText = input => {
     setQuery(textWithOnlyDigits(input));
   };
 
-  const onTabSwitch = async (selectedTab) => {
+  const onTabSwitch = async selectedTab => {
     // The button is supposed to serve for the same number that it first loaded the fact for.
     // It is possible that user may type new number without submitting on this page, and still trigger
     // for a new fact below. Hence, refers to data.number instead of query.
@@ -79,22 +77,21 @@ function SearchResults({ route, navigation }) {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        style={styles.searchResultsPage}
-      >
+      <View style={styles.searchResultsPage}>
         <Gap value={20} />
         {/* Home Icon + Search Bar */}
         <View>
           <View style={styles.pageHeader}>
             <Pressable
-              hitSlop={{ bottom: 20, left: 20, right: 20, top: 20 }}
-              style={({ pressed }) => {
-                return { opacity: pressed ? 0.5 : 1.0 };
+              hitSlop={{bottom: 20, left: 20, right: 20, top: 20}}
+              style={({pressed}) => {
+                return {opacity: pressed ? 0.5 : 1.0};
               }}
-              onPress={() => navigation.popToTop()}
-            >
-              <Image source={require('../assets/home-icon.png')} style={styles.homeIcon} />
+              onPress={() => navigation.popToTop()}>
+              <Image
+                source={require('../assets/home-icon.png')}
+                style={styles.homeIcon}
+              />
             </Pressable>
             <Gap horizontal value={10} />
             <Image
@@ -128,9 +125,11 @@ function SearchResults({ route, navigation }) {
           data={data}
         />
         {infoOverlay ? (
-          <InfoOverlay toggleInfoOverlay={() => toggleInfoOverlay(!infoOverlay)} />
+          <InfoOverlay
+            toggleInfoOverlay={() => toggleInfoOverlay(!infoOverlay)}
+          />
         ) : null}
-      </KeyboardAvoidingView>
+      </View>
     </TouchableWithoutFeedback>
   );
 }
@@ -149,7 +148,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
   },
-  pageHeader: { flexDirection: 'row' },
+  pageHeader: {flexDirection: 'row'},
 });
 
 export default SearchResults;
