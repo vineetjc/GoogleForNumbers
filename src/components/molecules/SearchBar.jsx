@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   textInput: {
     width: windowWidth - 32 - 150,
     justifyContent: 'center',
+    color: 'black',
   },
   searchBarIcons: {height: 20, width: 20},
   searchIconAndText: {flexDirection: 'row', alignItems: 'center'},

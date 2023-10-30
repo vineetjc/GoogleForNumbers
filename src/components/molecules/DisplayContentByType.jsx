@@ -25,7 +25,7 @@ const DisplayContentByType = (props) => {
         source={getImageByType(props.data.type)}
         style={{ width: windowWidth - 32 - 100, height: windowWidth - 32 - 100 }}
       />
-      <Text style={{ fontSize: 24 }}>{props.data.text}</Text>
+      <Text style={{ fontSize: 24, color: 'black' }}>{props.data.text}</Text>
 
       <View style={styles.buttonsContainer}>
         {props.data.type !== 'error' ? (

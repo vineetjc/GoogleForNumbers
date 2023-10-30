@@ -15,21 +15,21 @@ const InfoOverlay = props => {
     <TouchableWithoutFeedback onPress={props.toggleInfoOverlay}>
       <View style={styles.translucent}>
         <View style={styles.infoCard}>
-          <Text>
+        <Text style={{color: 'black'}}>
             Welcome to 'Google For Numbers'. This is Google, but only for
             numbers - because the world wouldn't exist without numbers (or would
             it, since man made numbers?)
           </Text>
 
-          <Text>
+          <Text style={{color: 'black'}}>
             How To Use: enter a number to learn more about the following-{' '}
           </Text>
           <View>
-            <Text>1. Trivia</Text>
-            <Text>2. Math fact </Text>
-            <Text>3. Year </Text>
+          <Text style={{color: 'black'}}>1. Trivia</Text>
+          <Text style={{color: 'black'}}>2. Math fact </Text>
+          <Text style={{color: 'black'}}>3. Year </Text>
           </View>
-          <Text>Powered by NumbersAPI.com</Text>
+          <Text style={{color: 'black'}}>Powered by NumbersAPI.com</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>

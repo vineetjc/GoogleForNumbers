@@ -11,7 +11,7 @@ const Button = props => {
       }}
       onPress={onPress}>
       <View style={{padding: 10, backgroundColor: '#F8F8F8', borderRadius: 8}}>
-        <Text>{buttonText}</Text>
+        <Text style={{color: 'black'}}>{buttonText}</Text>
       </View>
     </Pressable>
   );
